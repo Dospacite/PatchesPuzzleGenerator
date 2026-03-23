@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: pip install -e .
+      - name: Run self-test
+        run: python generate_patches.py --self-test
+      - name: Run smoke generation
+        run: python generate_patches.py --counts easy=1 medium=1 hard=1 expert=1 --max-attempts 400 --out ./generated_ci_smoke

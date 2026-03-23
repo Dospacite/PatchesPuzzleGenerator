@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "patches-puzzle-creator"
+version = "0.1.0"
+description = "CLI for generating uniquely solvable Patches-style rectangle-partition logic puzzles."
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+  { name = "Ege" }
+]
+keywords = ["logic-puzzles", "puzzle-generator", "python", "rectangles"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Games/Entertainment :: Puzzle Games",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.scripts]
+patches-puzzle-creator = "patches_puzzle_creator.generate_patches:main"
+
+[project.urls]
+Homepage = "https://github.com/Dospacite/PatchesPuzzleGenerator"
+Repository = "https://github.com/Dospacite/PatchesPuzzleGenerator"
+Issues = "https://github.com/Dospacite/PatchesPuzzleGenerator/issues"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
